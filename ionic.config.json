@@ -1,0 +1,7 @@
+{
+  "name": "DiscountApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
