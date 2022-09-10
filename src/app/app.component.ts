@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { StatusBar, Style } from '@capacitor/status-bar';
 
 @Component({
@@ -7,7 +8,15 @@ import { StatusBar, Style } from '@capacitor/status-bar';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {
+  constructor(
+    private router: Router,
+  ) {
     StatusBar.setStyle({ style: Style.Dark });
+
+    if(localStorage.getItem('token')) {
+      router.navigate([''])
+    } else {
+      router.navigate(['login'])
+    }
   }
 }
