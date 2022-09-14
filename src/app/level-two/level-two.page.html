@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>{{ oneName }}</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-progress-bar color="danger" *ngIf="loading" type="indeterminate"></ion-progress-bar>
+
+  <ion-list>
+    <ion-item (click)="carts_screen(item.twoId, item.title)" button lines="none" *ngFor="let item of data">
+      <ion-label>
+        <h1>{{ item.title }}</h1>
+      </ion-label>
+      <ion-chip slot="end" color="primary">
+        <ion-label>Opened {{ item.order }}</ion-label>
+      </ion-chip>
+
+    </ion-item>
+  </ion-list>
+</ion-content>

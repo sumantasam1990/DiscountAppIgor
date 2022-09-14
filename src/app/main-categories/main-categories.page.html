@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title color="primary">Categories</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large" color="primary">
+        Categories
+      </ion-title>
+      <ion-buttons slot="end">
+        <ion-button fill="clear">
+          <ion-icon name="add-outline" size="large"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-progress-bar color="danger" *ngIf="loading" type="indeterminate"></ion-progress-bar>
+
+  <ion-list>
+    <ion-item (click)="level_one_screen(item.cateId, item.title)" button lines="full" *ngFor="let item of data">
+      <ion-icon slot="start" color="warning" name="albums-outline"></ion-icon>
+      <ion-label>
+        <h1>{{ item.title }}</h1>
+        <p>
+          {{ item.description }}
+        </p>
+      </ion-label>
+
+
+    </ion-item>
+  </ion-list>
+</ion-content>

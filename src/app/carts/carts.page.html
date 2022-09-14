@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>Carts</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-progress-bar color="danger" *ngIf="loading" type="indeterminate"></ion-progress-bar>
+
+  <ion-breadcrumbs>
+    <ion-breadcrumb href="#home">{{ twoName }}</ion-breadcrumb>
+  </ion-breadcrumbs>
+
+  <ion-list>
+    <ion-item (click)="product_type_screen(item.id, item.cart)" button lines="none" *ngFor="let item of data">
+      <ion-label>
+        <h1>{{ item.cart }}</h1>
+        <p class="ion-text-wrap">
+          {{ item.description }}
+        </p>
+      </ion-label>
+      <ion-chip slot="end" color="primary">
+        <ion-label>Opened {{ item.opens }}</ion-label>
+      </ion-chip>
+
+    </ion-item>
+  </ion-list>
+</ion-content>

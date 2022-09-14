@@ -1,0 +1,13 @@
+<ion-progress-bar color="danger" *ngIf="loading" type="indeterminate"></ion-progress-bar>
+
+<ion-list *ngIf="data.length > 0">
+  <ion-item (click)="level_two_screen(item.oneId, item.title)" button lines="none" *ngFor="let item of data">
+    <ion-label>
+      <h1>{{ item.title }}</h1>
+    </ion-label>
+  </ion-item>
+</ion-list>
+
+<ion-text *ngIf="data.length === 0">
+  <h4 style="margin-left: 12px;">No data found.</h4>
+</ion-text>

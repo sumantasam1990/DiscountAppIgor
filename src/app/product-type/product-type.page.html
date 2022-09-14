@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>{{ name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-progress-bar color="danger" *ngIf="loading" type="indeterminate"></ion-progress-bar>
+
+  <ion-breadcrumbs>
+    <ion-breadcrumb>{{ twoName }}</ion-breadcrumb>
+  </ion-breadcrumbs>
+
+
+  <ion-chip (click)="product_screen(item.typeId, item.type)" *ngFor="let item of data">
+    <ion-label>{{ item.type }}</ion-label>
+  </ion-chip>
+
+</ion-content>

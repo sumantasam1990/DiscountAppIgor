@@ -9,6 +9,30 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'level-one/:id/:name',
+    loadChildren: () => import('./tab1/tab1.module').then(m => m.Tab1PageModule)
+  },
+  {
+    path: 'level-two/:id/:name',
+    loadChildren: () => import('./level-two/level-two.module').then( m => m.LevelTwoPageModule)
+  },
+  {
+    path: 'carts/:id/:name',
+    loadChildren: () => import('./carts/carts.module').then( m => m.CartsPageModule)
+  },
+  {
+    path: 'main-categories',
+    loadChildren: () => import('./main-categories/main-categories.module').then( m => m.MainCategoriesPageModule)
+  },
+  {
+    path: 'products/:id/:name',
+    loadChildren: () => import('./products/products.module').then( m => m.ProductsPageModule)
+  },
+  {
+    path: 'product-type/:id/:name',
+    loadChildren: () => import('./product-type/product-type.module').then( m => m.ProductTypePageModule)
   }
 ];
 @NgModule({

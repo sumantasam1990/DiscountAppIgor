@@ -18,9 +18,7 @@ export class Tab1Page implements OnInit {
   ) {}
 
   ngOnInit(): void {
-      this.http.get(this.usersURL).subscribe(res => {
-        console.log(res)
-      })
+
   }
 
 }

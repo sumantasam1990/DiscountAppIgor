@@ -6,6 +6,7 @@ import { Tab1Page } from './tab1.page';
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { FeedModule } from '../feed/feed.module';
+import { LevelOneModule } from '../level-one/level-one.module';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { FeedModule } from '../feed/feed.module';
     CommonModule,
     FormsModule,
     FeedModule,
+    LevelOneModule,
     Tab1PageRoutingModule
   ],
   declarations: [Tab1Page]
