@@ -33,7 +33,7 @@ export class ProductTypePage implements OnInit {
     this.loading = true
       await this.http.get(this.usersURL + this.id).subscribe((res: any) => {
         this.loading = false
-        this.data = res.product_types
+        this.data = res.cart[0]
       }, error => {
         alert('Error! ' + error)
       })

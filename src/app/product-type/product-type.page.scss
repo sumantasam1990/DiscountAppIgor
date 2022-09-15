@@ -1,4 +1,14 @@
 ion-chip {
   --background: #ffe01d;
   --color: #000000;
+  margin-top: 20px;
+}
+
+.name_user {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: space-between;
+
 }

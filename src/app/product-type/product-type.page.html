@@ -2,18 +2,35 @@
   <ion-toolbar>
     <ion-back-button slot="start"></ion-back-button>
     <ion-title>{{ name }}</ion-title>
+
+    <ion-button slot="end" fill="clear" color="primary">
+      Save cart
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <ion-progress-bar color="danger" *ngIf="loading" type="indeterminate"></ion-progress-bar>
 
-  <ion-breadcrumbs>
-    <ion-breadcrumb>{{ twoName }}</ion-breadcrumb>
-  </ion-breadcrumbs>
+  <div class="name_user">
+    <ion-text color="primary">
+      <h4>{{ data.user?.name }}</h4>
+    </ion-text>
+
+    <ion-chip color="warning">
+      <ion-label style="font-weight: bold;"> {{ data.opens }} Opens</ion-label>
+    </ion-chip>
+  </div>
+
+  <ion-label>
+    <p class="ion-text-wrap">
+      {{ data.description }}
+    </p>
+  </ion-label>
 
 
-  <ion-chip (click)="product_screen(item.typeId, item.type)" *ngFor="let item of data">
+
+  <ion-chip (click)="product_screen(item.typeId, item.type)" *ngFor="let item of data.product_categories">
     <ion-label>{{ item.type }}</ion-label>
   </ion-chip>
 
