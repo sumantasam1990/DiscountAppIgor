@@ -11,12 +11,12 @@ export class AppComponent {
   constructor(
     private router: Router,
   ) {
-    StatusBar.setStyle({ style: Style.Dark });
+    StatusBar.setStyle({ style: Style.Light });
 
     if(localStorage.getItem('token')) {
-      router.navigate([''])
+      router.navigate(['']);
     } else {
-      router.navigate(['login'])
+      router.navigate(['login']);
     }
   }
 }

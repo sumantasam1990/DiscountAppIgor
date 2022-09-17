@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serverAPI: 'http://localhost:8000/api/v1/'
+  serverAPI: 'https://cartingly.com/api/v1/'
 };
 
 /*
