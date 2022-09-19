@@ -12,15 +12,20 @@
 <ion-content class="ion-padding">
   <ion-progress-bar color="danger" *ngIf="loading" type="indeterminate"></ion-progress-bar>
 
+  <ion-chip color="warning">
+    <ion-label style="font-weight: bold;"> {{ data.opens }} Opens</ion-label>
+  </ion-chip>
+
   <div class="name_user">
     <ion-text color="primary">
       <h4>{{ data.user?.name }}</h4>
     </ion-text>
 
-    <ion-chip color="warning">
-      <ion-label style="font-weight: bold;"> {{ data.opens }} Opens</ion-label>
-    </ion-chip>
+    <ion-button fill="solid" color="light">Follow</ion-button>
+
   </div>
+
+
 
   <ion-label>
     <p class="ion-text-wrap">

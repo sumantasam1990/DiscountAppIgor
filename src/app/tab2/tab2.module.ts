@@ -7,6 +7,8 @@ import { Tab2Page } from './tab2.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { Tab2PageRoutingModule } from './tab2-routing.module';
+import {UnpublishedCartComponent} from "../components/unpublished-cart/unpublished-cart.component";
+import {SaveCartsComponent} from "../components/save-carts/save-carts.component";
 
 @NgModule({
   imports: [
@@ -16,6 +18,6 @@ import { Tab2PageRoutingModule } from './tab2-routing.module';
     ExploreContainerComponentModule,
     Tab2PageRoutingModule
   ],
-  declarations: [Tab2Page]
+  declarations: [Tab2Page, UnpublishedCartComponent, SaveCartsComponent]
 })
 export class Tab2PageModule {}

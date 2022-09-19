@@ -1,13 +1,8 @@
-ion-content {
-  ion-img::part(image) {
+ ion-img::part(image) {
     width: 150px;
     height: 150px;
     object-fit: cover;
     border-radius: 12px !important;
-  }
-
-  ion-segment {
-    margin-top: 14px;
   }
 
   .margin {
@@ -19,4 +14,4 @@ ion-content {
     flex-direction: row;
     justify-content: space-between;
   }
-}
+

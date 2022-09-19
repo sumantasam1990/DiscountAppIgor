@@ -1,0 +1,17 @@
+ion-img::part(image) {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px !important;
+}
+
+.margin {
+  margin-top: 10px !important;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+

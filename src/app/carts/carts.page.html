@@ -15,14 +15,18 @@
 
   <ion-list>
     <ion-item (click)="product_type_screen(item.id, item.cart)" button lines="none" *ngFor="let item of data">
+
+      <ion-thumbnail slot="start">
+        <ion-img [src]="item.cart_photo"></ion-img>
+      </ion-thumbnail>
       <ion-label>
         <h4>
           <ion-text color="primary">{{ item.user.name }}</ion-text>
         </h4>
         <h1 class="ion-text-wrap">{{ item.cart }}</h1>
-        <p class="ion-text-wrap">
-          {{ item.description }}
-        </p>
+<!--        <p class="ion-text-wrap">-->
+<!--          {{ item.description }}-->
+<!--        </p>-->
       </ion-label>
       <ion-chip slot="end" color="primary">
         <ion-label> {{ item.opens }} Opens</ion-label>
