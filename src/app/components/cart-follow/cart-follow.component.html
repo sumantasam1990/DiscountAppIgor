@@ -3,7 +3,7 @@
   <ion-col>
     <h2>
       <ion-text color="">
-        My Unpublished Carts
+        Cart Follows
       </ion-text>
     </h2>
   </ion-col>
@@ -12,16 +12,16 @@
 
 <ion-row *ngIf="data.length > 0">
   <ion-col size="6" *ngFor="let cart of data">
-    <ion-img (click)="cartScreen(cart.id, cart.cart_name);" [src]="cart.main_photo"></ion-img>
+    <ion-img (click)="cartScreen(cart.followings[0].id, cart.followings[0].name);" src="https://cdn-icons-png.flaticon.com/128/149/149071.png"></ion-img>
 
     <div class="margin">
       <ion-label>
-        <h2>{{ cart.cart_name }}</h2>
-        <p>{{cart.opens}} Opens</p>
+        <h2>{{ cart.followings[0].name }}</h2>
+<!--        <p>{{cart.opens}} Opens</p>-->
       </ion-label>
     </div>
     <ion-button fill="clear">
-      <ion-icon slot="start" name="trash-outline"></ion-icon> Delete Cart
+      <ion-icon slot="start" name="trash-outline"></ion-icon> Unfollow
     </ion-button>
   </ion-col>
 </ion-row>
@@ -39,11 +39,11 @@
 <ion-row *ngIf="data.length > 0">
 <!--  <ion-col size="6">-->
 <!--    <ion-button fill="clear">-->
-<!--      <ion-icon slot="start" name="trash-outline"></ion-icon> Delete Cart-->
+<!--      <ion-icon slot="start" name="trash-outline"></ion-icon> Unfollow-->
 <!--    </ion-button>-->
 <!--  </ion-col>-->
 
-<!--  <ion-col size="6">-->
+<!--  <ion-col size="12">-->
 <!--    <ion-button color="medium" fill="clear" expand="full">-->
 <!--      More-->
 <!--    </ion-button>-->

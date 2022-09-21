@@ -5,13 +5,13 @@ import {environment} from '../../../environments/environment';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-unpublished-cart',
-  templateUrl: './unpublished-cart.component.html',
-  styleUrls: ['./unpublished-cart.component.scss'],
+  selector: 'app-cart-follow',
+  templateUrl: './cart-follow.component.html',
+  styleUrls: ['./cart-follow.component.scss'],
 })
-export class UnpublishedCartComponent implements OnInit {
+export class CartFollowComponent implements OnInit {
 
-  unpublishedURL: string = environment.serverAPI + 'profile/unpublished/carts';
+  followCartURL: string = environment.serverAPI + 'profile/follow/carts';
   loading = false;
   data: any = [];
 
@@ -26,9 +26,10 @@ export class UnpublishedCartComponent implements OnInit {
 
   async getData() {
     this.loading = true;
-    await this.http.get(this.unpublishedURL).pipe(delay(250), retry(3)).toPromise().then((res: any) => {
+    await this.http.get(this.followCartURL).pipe(delay(250), retry(3)).toPromise().then((res: any) => {
       this.loading = false;
-      this.data = res.carts;
+      this.data = res.follow_carts;
+      console.log(res.follow_carts[0].followings[0].name);
     }, error => {
       alert('Error! ' + error);
     });

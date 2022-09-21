@@ -34,10 +34,10 @@
             </h1>
             <div class="flex">
               <p>
-                <ion-button fill="solid" color="light">120 Followers</ion-button>
+                <ion-button fill="solid" color="light">2 Followers</ion-button>
               </p>
               <p>
-                <ion-button fill="solid" color="primary">12,000 Opens</ion-button>
+                <ion-button fill="solid" color="dark">3 Opens</ion-button>
               </p>
             </div>
 
@@ -60,21 +60,21 @@
       </ion-segment-button>
       <ion-segment-button value="saved">
         <ion-icon name="bookmark-outline"></ion-icon>
-        <ion-label>Saved</ion-label>
+        <ion-label>Saved Cart</ion-label>
       </ion-segment-button>
       <ion-segment-button value="follow">
         <ion-icon name="eye-outline"></ion-icon>
         <ion-label>Cart Follow</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="list">
-        <ion-icon name="list-outline"></ion-icon>
-        <ion-label>Cart Lists</ion-label>
-      </ion-segment-button>
+<!--      <ion-segment-button value="list">-->
+<!--        <ion-icon name="list-outline"></ion-icon>-->
+<!--        <ion-label>Cart Lists</ion-label>-->
+<!--      </ion-segment-button>-->
 
     </ion-segment>
 
     <div *ngIf="published">
-      <ion-progress-bar type="indeterminate"></ion-progress-bar>
+      <ion-progress-bar *ngIf="loading" type="indeterminate"></ion-progress-bar>
       <ion-row>
         <ion-col>
           <h2>
@@ -86,44 +86,44 @@
 
       </ion-row>
 
-      <ion-row>
-        <ion-col size="6">
-          <ion-img src="https://images.pexels.com/photos/3214729/pexels-photo-3214729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"></ion-img>
+      <ion-row *ngIf="data.length > 0">
+        <ion-col size="6" *ngFor="let cart of data">
+          <ion-img (click)="cartScreen(cart.id, cart.cart_name)" [src]="cart.main_photo"></ion-img>
 
           <div class="margin">
             <ion-label>
-              <h2>Name Of Cart</h2>
-              <p>32 Opens</p>
+              <h2>{{ cart.cart_name }}</h2>
+              <p>{{cart.opens}} Opens</p>
             </ion-label>
           </div>
-
-        </ion-col>
-
-        <ion-col size="6">
-          <ion-img src="https://images.pexels.com/photos/3214729/pexels-photo-3214729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"></ion-img>
-
-          <div class="margin">
-            <ion-label>
-              <h2>Name Of Cart</h2>
-              <p>32 Opens</p>
-            </ion-label>
-          </div>
-
+            <ion-button fill="clear">
+              <ion-icon slot="start" name="trash-outline"></ion-icon> Delete Cart
+            </ion-button>
         </ion-col>
       </ion-row>
 
-      <ion-row>
-        <ion-col size="6">
-          <ion-button fill="clear">
-            <ion-icon slot="start" name="trash-outline"></ion-icon> Delete Cart
-          </ion-button>
+      <ion-row *ngIf="data.length === 0">
+        <ion-col>
+          <p>
+            <ion-text>
+              No cart found.
+            </ion-text>
+          </p>
         </ion-col>
+      </ion-row>
 
-        <ion-col size="6">
-          <ion-button color="medium" fill="clear" expand="full">
-            More
-          </ion-button>
-        </ion-col>
+      <ion-row *ngIf="data.length > 0">
+<!--        <ion-col size="6">-->
+<!--          <ion-button fill="clear">-->
+<!--            <ion-icon slot="start" name="trash-outline"></ion-icon> Delete Cart-->
+<!--          </ion-button>-->
+<!--        </ion-col>-->
+
+<!--        <ion-col size="6">-->
+<!--          <ion-button color="medium" fill="clear" expand="full">-->
+<!--            More-->
+<!--          </ion-button>-->
+<!--        </ion-col>-->
       </ion-row>
     </div>
 
@@ -131,7 +131,12 @@
 
     <app-save-carts *ngIf="saved"></app-save-carts>
 
+    <app-cart-follow *ngIf="follow"></app-cart-follow>
+
   </ion-grid>
 
+  <ion-button (click)="logout()" fill="clear" color="primary">
+    Logout
+  </ion-button>
 
 </ion-content>

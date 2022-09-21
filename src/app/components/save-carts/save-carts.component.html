@@ -1,9 +1,9 @@
-<ion-progress-bar type="indeterminate"></ion-progress-bar>
+<ion-progress-bar *ngIf="loading" type="indeterminate"></ion-progress-bar>
 <ion-row>
   <ion-col>
     <h2>
       <ion-text color="">
-        My Saved Carts
+        Places (single destination)
       </ion-text>
     </h2>
   </ion-col>
@@ -11,42 +11,178 @@
 </ion-row>
 
 <ion-row>
-  <ion-col size="6">
-    <ion-img src="https://images.pexels.com/photos/3214729/pexels-photo-3214729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"></ion-img>
+  <ion-col size="6" *ngFor="let cart of data">
+    <ion-img (click)="cartScreen(cart.id, cart.cart_name);" [src]="cart.main_photo"></ion-img>
 
     <div class="margin">
       <ion-label>
-        <h2>Name Of Cart</h2>
-        <p>32 Opens</p>
+        <h2>{{cart.cart_name}}</h2>
+        <p>{{cart.opens}} Opens</p>
       </ion-label>
     </div>
 
   </ion-col>
 
-  <ion-col size="6">
-    <ion-img src="https://images.pexels.com/photos/3214729/pexels-photo-3214729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"></ion-img>
+</ion-row>
 
-    <div class="margin">
-      <ion-label>
-        <h2>Name Of Cart</h2>
-        <p>32 Opens</p>
-      </ion-label>
-    </div>
-
+<ion-row *ngIf="data.length === 0">
+  <ion-col>
+    <p>
+      <ion-text>
+        No cart found..
+      </ion-text>
+    </p>
   </ion-col>
 </ion-row>
 
+<!------------------------------>
+
 <ion-row>
-  <ion-col size="6">
-    <ion-button fill="clear">
-      <ion-icon slot="start" name="trash-outline"></ion-icon> Remove Cart
-    </ion-button>
+  <ion-col>
+    <h2>
+      <ion-text color="">
+        Places (multi destination)
+      </ion-text>
+    </h2>
   </ion-col>
 
-  <ion-col size="6">
-    <ion-button color="medium" fill="clear" expand="full">
-      More
-    </ion-button>
+</ion-row>
+
+<ion-row>
+  <ion-col size="6" *ngFor="let cart of data">
+    <ion-img (click)="cartScreen(cart.id, cart.cart_name);" [src]="cart.main_photo"></ion-img>
+
+    <div class="margin">
+      <ion-label>
+        <h2>{{cart.cart_name}}</h2>
+        <p>{{cart.opens}} Opens</p>
+      </ion-label>
+    </div>
+
   </ion-col>
 
+</ion-row>
+
+<ion-row *ngIf="data.length === 0">
+  <ion-col>
+    <p>
+      <ion-text>
+        No cart found..
+      </ion-text>
+    </p>
+  </ion-col>
+</ion-row>
+
+<!------------------------------>
+
+<ion-row>
+  <ion-col>
+    <h2>
+      <ion-text color="">
+        Products/Things (single destination)
+      </ion-text>
+    </h2>
+  </ion-col>
+
+</ion-row>
+
+<ion-row>
+  <ion-col size="6" *ngFor="let cart of dataProducts">
+    <ion-img (click)="cartScreen(cart.id, cart.cart_name);" [src]="cart.main_photo"></ion-img>
+
+    <div class="margin">
+      <ion-label>
+        <h2>{{cart.cart_name}}</h2>
+        <p>{{cart.opens}} Opens</p>
+      </ion-label>
+    </div>
+
+  </ion-col>
+
+</ion-row>
+
+<ion-row *ngIf="dataProducts.length === 0">
+  <ion-col>
+    <p>
+      <ion-text>
+        No cart found..
+      </ion-text>
+    </p>
+  </ion-col>
+</ion-row>
+
+<!------------------------------>
+
+<ion-row>
+  <ion-col>
+    <h2>
+      <ion-text color="">
+        Products/Things (multi destination)
+      </ion-text>
+    </h2>
+  </ion-col>
+
+</ion-row>
+
+<ion-row>
+  <ion-col size="6" *ngFor="let cart of dataProducts">
+    <ion-img (click)="cartScreen(cart.id, cart.cart_name);" [src]="cart.main_photo"></ion-img>
+
+    <div class="margin">
+      <ion-label>
+        <h2>{{cart.cart_name}}</h2>
+        <p>{{cart.opens}} Opens</p>
+      </ion-label>
+    </div>
+
+  </ion-col>
+
+</ion-row>
+
+<ion-row *ngIf="dataProducts.length === 0">
+  <ion-col>
+    <p>
+      <ion-text>
+        No cart found..
+      </ion-text>
+    </p>
+  </ion-col>
+</ion-row>
+
+<!------------------------------>
+
+<ion-row>
+  <ion-col>
+    <h2>
+      <ion-text color="">
+        Brands/People
+      </ion-text>
+    </h2>
+  </ion-col>
+
+</ion-row>
+
+<ion-row>
+  <ion-col size="6" *ngFor="let cart of brandsData">
+    <ion-img (click)="cartScreen(cart.id, cart.cart_name);" [src]="cart.main_photo"></ion-img>
+
+    <div class="margin">
+      <ion-label>
+        <h2>{{cart.cart_name}}</h2>
+        <p>{{cart.opens}} Opens</p>
+      </ion-label>
+    </div>
+
+  </ion-col>
+
+</ion-row>
+
+<ion-row *ngIf="brandsData.length === 0">
+  <ion-col>
+    <p>
+      <ion-text>
+        No cart found..
+      </ion-text>
+    </p>
+  </ion-col>
 </ion-row>

@@ -3,8 +3,12 @@
     height: 150px;
     object-fit: cover;
     border-radius: 12px !important;
+   border: 2px solid #ff5353;
   }
 
+ h2,p {
+   font-weight: bold !important;
+ }
   .margin {
     margin-top: 10px !important;
   }
