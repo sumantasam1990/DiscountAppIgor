@@ -1,10 +1,13 @@
 ion-content {
   ion-img::part(image) {
-    width: 150px;
-    height: 150px;
     object-fit: cover;
     border-radius: 12px !important;
-    border: 2px solid #ff5353;
+    border: 2px solid #fca3a3;
+  }
+
+  .pro-pic {
+    width: 150px;
+    height: 150px;
   }
 
   h1,h2,p {

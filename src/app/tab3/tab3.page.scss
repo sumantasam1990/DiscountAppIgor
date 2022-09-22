@@ -1,0 +1,11 @@
+
+cdk-virtual-scroll-viewport {
+  height: 100vh !important;
+  width: 100% !important;
+}
+
+ion-img::part(image) {
+  object-fit: cover;
+  border-radius: 12px !important;
+  border: 2px solid #fca3a3;
+}

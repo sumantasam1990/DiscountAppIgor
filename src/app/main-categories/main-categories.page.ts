@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class MainCategoriesPage implements OnInit {
 
-  usersURL: string = environment.serverAPI + 'main/categories'
+  usersURL: string = environment.serverAPI + 'main/categories';
   loading: boolean
   data: any = []
 

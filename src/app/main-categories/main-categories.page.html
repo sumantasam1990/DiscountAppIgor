@@ -9,13 +9,13 @@
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large" color="primary">
-        Categories
+        Discover
       </ion-title>
-      <ion-buttons slot="end">
-        <ion-button fill="clear">
-          <ion-icon name="add-outline" size="large"></ion-icon>
-        </ion-button>
-      </ion-buttons>
+<!--      <ion-buttons slot="end">-->
+<!--        <ion-button fill="clear">-->
+<!--          <ion-icon name="add-outline" size="large"></ion-icon>-->
+<!--        </ion-button>-->
+<!--      </ion-buttons>-->
     </ion-toolbar>
   </ion-header>
 
@@ -23,7 +23,12 @@
 
   <ion-list>
     <ion-item (click)="level_one_screen(item.cateId, item.title)" button lines="full" *ngFor="let item of data">
-      <ion-icon slot="start" color="warning" name="albums-outline"></ion-icon>
+      <ion-icon *ngIf="item.cateId === 1" slot="start" color="warning" name="cafe-outline"></ion-icon>
+
+      <ion-icon *ngIf="item.cateId === 2" slot="start" color="danger" name="shirt-outline"></ion-icon>
+
+      <ion-icon *ngIf="item.cateId === 3" slot="start" color="success" name="logo-apple"></ion-icon>
+
       <ion-label>
         <h1>{{ item.title }}</h1>
         <p>
@@ -34,4 +39,9 @@
 
     </ion-item>
   </ion-list>
+
+  <div class="float-btn">
+    <ion-button size="medium" fill="solid" shape="round" color="warning"><ion-icon slot="start" name="add-outline"></ion-icon> Create Cart</ion-button>
+  </div>
+
 </ion-content>

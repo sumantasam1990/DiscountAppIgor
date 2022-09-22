@@ -12,28 +12,37 @@
 <ion-content class="ion-padding">
   <ion-progress-bar color="danger" *ngIf="loading" type="indeterminate"></ion-progress-bar>
 
-  <ion-chip color="warning">
-    <ion-label style="font-weight: bold;"> {{ data.opens }} Opens</ion-label>
-  </ion-chip>
+  <ion-label class="ion-text-wrap">
+    <h1>
+      <ion-text>
+        {{data.cart}}
+      </ion-text>
+    </h1>
+  </ion-label>
+  <ion-img [src]="data.cart_photo"></ion-img>
+
+  <ion-text color="primary">
+    <h4>{{ data.user?.name }}</h4>
+  </ion-text>
 
   <div class="name_user">
-    <ion-text color="primary">
-      <h4>{{ data.user?.name }}</h4>
-    </ion-text>
 
-    <ion-button fill="solid" color="light">Follow</ion-button>
+    <ion-button fill="solid" size="small" color="light">{{ data.opens }} Opens</ion-button>
+
+    <ion-button fill="outline" size="small" color="dark">Follow</ion-button>
 
   </div>
 
-
-
-  <ion-label>
-    <p class="ion-text-wrap">
-      {{ data.description }}
-    </p>
-  </ion-label>
-
-
+  <ion-accordion-group>
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>Description</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        {{ data.description }}
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
 
   <ion-chip (click)="product_screen(item.typeId, item.type)" *ngFor="let item of data.product_categories">
     <ion-label>{{ item.type }}</ion-label>
