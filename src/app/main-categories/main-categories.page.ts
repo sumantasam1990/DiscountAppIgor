@@ -11,8 +11,8 @@ import { environment } from 'src/environments/environment';
 export class MainCategoriesPage implements OnInit {
 
   usersURL: string = environment.serverAPI + 'main/categories';
-  loading: boolean
-  data: any = []
+  loading: boolean;
+  data: any = [];
 
   constructor(
     private http: HttpClient,
@@ -21,22 +21,26 @@ export class MainCategoriesPage implements OnInit {
   ) { }
 
   async ngOnInit() {
-    await this.getData()
+    await this.getData();
 
   }
 
   async getData() {
-    this.loading = true
+    this.loading = true;
       await this.http.get(this.usersURL).subscribe((res: any) => {
-        this.loading = false
-        this.data = res.categories
+        this.loading = false;
+        this.data = res.categories;
       }, error => {
-        alert('Error! ' + error)
-      })
+        alert('Error! ' + error);
+      });
   }
 
   level_one_screen(id: number, name: string) {
-    this.router.navigate(['level-one', id, name])
+    this.router.navigate(['level-one', id, name]);
+  }
+
+  createCart() {
+    this.router.navigate(['create-cart']);
   }
 
 }
