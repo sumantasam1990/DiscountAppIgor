@@ -10,10 +10,11 @@ import { AppComponent } from './app.component';
 import { AuthInterceptor } from './AuthInterceptor';
 import { ErrorInterceptor } from './ErrorInterceptor';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, ScrollingModule, ],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, ScrollingModule, SweetAlert2Module.forRoot(), ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
