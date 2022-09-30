@@ -3,7 +3,7 @@ import {LoadingController, NavController} from '@ionic/angular';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {AuthService} from '../auth.service';
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 
 
 @Component({
