@@ -14,7 +14,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, ScrollingModule, SweetAlert2Module.forRoot(), ],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, ScrollingModule, SweetAlert2Module.forRoot(),  ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {

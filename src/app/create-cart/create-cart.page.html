@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar color="warning">
-    <ion-back-button slot="start"></ion-back-button>
+    <ion-back-button slot="start" color="dark"></ion-back-button>
     <ion-title>Create Cart</ion-title>
 
-    <ion-button slot="end" fill="clear" color="primary">
+    <ion-button (click)="next()" slot="end" fill="clear" color="dark">
       Next
     </ion-button>
 
@@ -17,7 +17,7 @@
       <ion-item-group>
         <ion-radio-group value="biff">
           <ion-list-header>
-            <ion-label>Choose A List</ion-label>
+            Choose A List
           </ion-list-header>
 
           <ion-item>
@@ -39,7 +39,33 @@
         </ion-radio-group>
       </ion-item-group>
       <ion-item-divider></ion-item-divider>
+
       <ion-item-group>
+        <ion-list-header>Levels</ion-list-header>
+        <ion-item>
+          <ion-select interface="popover" placeholder="Level One">
+            <ion-select-option value="apples">Apples</ion-select-option>
+            <ion-select-option value="oranges">Oranges</ion-select-option>
+            <ion-select-option value="bananas">Bananas</ion-select-option>
+            <ion-select-option value="bananas">Create your own</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-select interface="popover" placeholder="Level Two">
+            <ion-select-option value="apples">Apples</ion-select-option>
+            <ion-select-option value="oranges">Oranges</ion-select-option>
+            <ion-select-option value="bananas">Bananas</ion-select-option>
+            <ion-select-option value="bananas">Create your own</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+      </ion-item-group>
+
+      <ion-item-divider></ion-item-divider>
+
+      <ion-item-group>
+        <ion-list-header>Cart Info</ion-list-header>
         <ion-item>
 <!--          <ion-label position="floating">Name Of Cart</ion-label>-->
           <ion-input type="text" placeholder="Name Of Cart" inputmode="text"></ion-input>
@@ -57,6 +83,12 @@
           Main Photo Of Cart
         </ion-button>
       </ion-item>
+
+      <ion-item>
+        <ion-img *ngIf="mainPhoto !== ''" [src]="mainPhoto"></ion-img>
+      </ion-item>
+
+      <ion-item-divider></ion-item-divider>
     </ion-list>
   </div>
 

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import {delay, retry} from 'rxjs/operators';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-type',
@@ -16,6 +17,7 @@ export class ProductTypePage implements OnInit {
   usersURL: string = environment.serverAPI + 'product/type/';
   loading: boolean;
   data: any = [];
+  following = false;
 
   constructor(
     private http: HttpClient,
@@ -43,6 +45,25 @@ export class ProductTypePage implements OnInit {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   product_screen(id: number, name: string) {
     this.router.navigate(['products', id, name]);
+  }
+
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  save_cart() {
+    Swal.fire({
+      title: 'Success!',
+      text: 'Your cart saved successfully.',
+      icon: 'success',
+      heightAuto: false,
+    });
+  }
+
+  follow() {
+    this.following = true;
+    Swal.fire({
+      title: 'Following',
+      icon: 'success',
+      heightAuto: false,
+    });
   }
 
 }

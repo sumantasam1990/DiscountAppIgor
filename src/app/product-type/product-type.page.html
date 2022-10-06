@@ -3,7 +3,7 @@
     <ion-back-button slot="start"></ion-back-button>
     <ion-title>{{ name }}</ion-title>
 
-    <ion-button slot="end" fill="clear" color="primary">
+    <ion-button slot="end" fill="clear" color="primary" (click)="save_cart()">
       Save cart
     </ion-button>
   </ion-toolbar>
@@ -29,7 +29,9 @@
 
     <ion-button fill="solid" size="small" color="light">{{ data.opens }} Opens</ion-button>
 
-    <ion-button fill="outline" size="small" color="dark">Follow</ion-button>
+    <ion-button *ngIf="following" fill="solid" size="small" color="dark" (click)="follow()">Following</ion-button>
+
+    <ion-button *ngIf="!following" fill="outline" size="small" color="dark" (click)="follow()">Follow</ion-button>
 
   </div>
 

@@ -32,4 +32,18 @@ ion-button {
   font-weight: bold;
 }
 
+ion-popover {
+  --background: rgba(32, 32, 32, 0.6);
+  --backdrop-opacity: 0.6;
+  --box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.6);
+  --color: white;
+  --width: 300px;
+}
 
+ion-popover ion-content {
+  --background: rgba(35, 35, 35, 0.6);
+}
+
+ion-popover::part(backdrop) {
+  background-color: rgb(35, 35, 35);
+}
