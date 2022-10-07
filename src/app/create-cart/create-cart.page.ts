@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActionSheetController} from '@ionic/angular';
 import { Camera, CameraResultType } from '@capacitor/camera';
 import Swal from 'sweetalert2';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-cart',
@@ -10,11 +11,12 @@ import Swal from 'sweetalert2';
 })
 export class CreateCartPage implements OnInit {
   private imageElement: any;
-  mainPhoto: string = '';
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  mainPhoto = '';
 
   constructor(
     private actionSheetCtrl: ActionSheetController,
-
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -93,6 +95,8 @@ export class CreateCartPage implements OnInit {
       text: 'Now You can add product category/type and under the product type you can add multiple products.',
       icon: 'success',
       heightAuto: false,
+    }).then(() => {
+      this.router.navigate(['create-cart-product-type']);
     });
   }
 

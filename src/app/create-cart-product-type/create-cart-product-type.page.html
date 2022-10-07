@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-back-button slot="start" color="dark"></ion-back-button>
+    <ion-title>Product Type - Cart</ion-title>
+
+    <ion-button (click)="next()" slot="end" fill="clear" color="dark">
+      Next
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="flex">
+    <ion-list>
+      <ion-item-group>
+        <ion-list-header>
+          Add Product Type/Category
+        </ion-list-header>
+        <ion-item>
+          <ion-select interface="popover" placeholder="Category">
+            <ion-select-option value="apples">Type 1</ion-select-option>
+            <ion-select-option value="oranges">Type 2</ion-select-option>
+            <ion-select-option value="bananas">Create your own</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+          <ion-button fill="solid" shape="round" color="primary" style="margin-top: 14px;">
+            <ion-icon slot="start" name="add-outline"></ion-icon>
+            Add
+          </ion-button>
+
+      </ion-item-group>
+      <ion-item-divider></ion-item-divider>
+
+      <div class="flex">
+        <ion-chip color="dark">
+          <ion-label>Type 2</ion-label>
+          <ion-icon name="close-circle"></ion-icon>
+        </ion-chip>
+        <ion-chip color="dark">
+          <ion-label>Type 2</ion-label>
+          <ion-icon name="close-circle"></ion-icon>
+        </ion-chip>
+        <ion-chip color="dark">
+          <ion-label>Type 2</ion-label>
+          <ion-icon name="close-circle"></ion-icon>
+        </ion-chip>
+        <ion-chip color="dark">
+          <ion-label>Type 2</ion-label>
+          <ion-icon name="close-circle"></ion-icon>
+        </ion-chip>
+        <ion-chip color="dark">
+          <ion-label>Type 2</ion-label>
+          <ion-icon name="close-circle"></ion-icon>
+        </ion-chip>
+        <ion-chip color="dark">
+          <ion-label>Type 2</ion-label>
+          <ion-icon name="close-circle"></ion-icon>
+        </ion-chip>
+      </div>
+
+
+
+    </ion-list>
+  </div>
+
+</ion-content>
