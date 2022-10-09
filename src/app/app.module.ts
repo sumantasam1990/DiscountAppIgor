@@ -17,7 +17,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
   imports: [BrowserModule, IonicModule.forRoot(
     {
       rippleEffect: true,
-       mode: 'md',
+       // mode: 'md',
       backButtonText: 'Back',
     }
   ), AppRoutingModule, HttpClientModule, ScrollingModule, SweetAlert2Module.forRoot(),  ],

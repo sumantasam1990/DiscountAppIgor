@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActionSheetController} from '@ionic/angular';
 import { Camera, CameraResultType } from '@capacitor/camera';
 import Swal from 'sweetalert2';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-cart',
