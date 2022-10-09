@@ -37,3 +37,5 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+// the end
