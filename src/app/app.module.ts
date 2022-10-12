@@ -12,6 +12,7 @@ import { ErrorInterceptor } from './ErrorInterceptor';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(
@@ -32,7 +33,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
       provide : HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
       multi   : true,
-    }
+    },
   ],
   bootstrap: [AppComponent],
 })

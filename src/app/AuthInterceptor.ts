@@ -17,7 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
                 'Authorization': `Bearer ${currentAuthToken}`,
             };
             if (request.responseType === 'json') {
-                headers['Content-Type'] = 'application/json';
+                headers['Content-Type'] = 'application/x-www-form-urlencoded';
             }
             request = request.clone({
                 setHeaders: headers

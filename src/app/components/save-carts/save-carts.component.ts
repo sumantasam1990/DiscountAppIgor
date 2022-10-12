@@ -32,7 +32,7 @@ export class SaveCartsComponent implements OnInit {
     this.loading = true;
     await this.http.get(this.savedCartURL + '/0/1').pipe(delay(250), retry(3)).toPromise().then((res: any) => {
       this.loading = false;
-      this.data = res.listings;
+      this.data = res.listings[0].save_cart_many;
     }, error => {
       alert('Error! ' + error);
     });

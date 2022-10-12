@@ -43,8 +43,16 @@ const routes: Routes = [
     loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
   },
   {
-    path: 'create-cart-product-type',
+    path: 'create-cart-product-type/:id',
     loadChildren: () => import('./create-cart-product-type/create-cart-product-type.module').then( m => m.CreateCartProductTypePageModule)
+  },
+  {
+    path: 'create-cart-product/:id',
+    loadChildren: () => import('./create-cart-product/create-cart-product.module').then( m => m.CreateCartProductPageModule)
+  },
+  {
+    path: 'create-cart-product-images/:id',
+    loadChildren: () => import('./create-cart-product-images/create-cart-product-images.module').then( m => m.CreateCartProductImagesPageModule)
   }
 ];
 @NgModule({

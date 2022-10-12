@@ -15,24 +15,24 @@
   <div class="flex">
     <ion-list lines="none">
       <ion-item-group>
-        <ion-radio-group value="biff">
+        <ion-radio-group (ionChange)="getMainCate($event)">
           <ion-list-header>
             Choose A List
           </ion-list-header>
 
           <ion-item>
             <ion-label>Places</ion-label>
-            <ion-radio slot="start" value="places"></ion-radio>
+            <ion-radio mode="md" slot="start" value="1"></ion-radio>
           </ion-item>
 
           <ion-item>
             <ion-label>Products</ion-label>
-            <ion-radio slot="start" value="products"></ion-radio>
+            <ion-radio mode="md" slot="start" value="2"></ion-radio>
           </ion-item>
 
           <ion-item>
             <ion-label>Brands</ion-label>
-            <ion-radio slot="start" value="brands"></ion-radio>
+            <ion-radio mode="md" slot="start" value="3"></ion-radio>
           </ion-item>
 
 
@@ -43,20 +43,14 @@
       <ion-item-group>
         <ion-list-header>Levels</ion-list-header>
         <ion-item>
-          <ion-select interface="popover" placeholder="Level One">
-            <ion-select-option value="apples">Apples</ion-select-option>
-            <ion-select-option value="oranges">Oranges</ion-select-option>
-            <ion-select-option value="bananas">Bananas</ion-select-option>
-            <ion-select-option value="bananas">Create your own</ion-select-option>
+          <ion-select interface="popover" placeholder="Level One" (ionChange)="selectLevelOne($event)">
+            <ion-select-option *ngFor="let item of levelOne" [value]="item.oneId">{{item.title}}</ion-select-option>
           </ion-select>
         </ion-item>
 
         <ion-item>
-          <ion-select interface="popover" placeholder="Level Two">
-            <ion-select-option value="apples">Apples</ion-select-option>
-            <ion-select-option value="oranges">Oranges</ion-select-option>
-            <ion-select-option value="bananas">Bananas</ion-select-option>
-            <ion-select-option value="bananas">Create your own</ion-select-option>
+          <ion-select interface="popover" placeholder="Level Two" (ionChange)="level_two($event)">
+            <ion-select-option *ngFor="let item of levelTwo" [value]="item.twoId">{{item.title}}</ion-select-option>
           </ion-select>
         </ion-item>
 
@@ -68,11 +62,12 @@
         <ion-list-header>Cart Info</ion-list-header>
         <ion-item>
 <!--          <ion-label position="floating">Name Of Cart</ion-label>-->
-          <ion-input type="text" placeholder="Name Of Cart" inputmode="text"></ion-input>
+          <ion-input type="text" placeholder="Name Of Cart" inputmode="text" [(ngModel)]="cart.cartName" name="cartName"></ion-input>
+
         </ion-item>
         <ion-item>
 <!--          <ion-label position="floating">Important Details</ion-label>-->
-          <ion-textarea placeholder="Important Details: For example, this is where you would paste a recipe."></ion-textarea>
+          <ion-textarea [(ngModel)]="cart.cartDesc" placeholder="Important Details: For example, this is where you would paste a recipe." name="cartDesc"></ion-textarea>
         </ion-item>
       </ion-item-group>
 

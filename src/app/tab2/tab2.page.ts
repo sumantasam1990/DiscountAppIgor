@@ -83,6 +83,10 @@ export class Tab2Page implements OnInit {
     this.router.navigate(['product-type', id, name]);
   }
 
+  createCart(){
+    this.router.navigate(['create-cart']);
+  }
+
   logout() {
     localStorage.clear();
     this.router.navigate(['login']);

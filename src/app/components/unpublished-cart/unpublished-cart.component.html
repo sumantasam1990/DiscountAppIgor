@@ -20,6 +20,9 @@
         <p>{{cart.opens}} Opens</p>
       </ion-label>
     </div>
+    <ion-button (click)="go(cart.id)" fill="clear" size="small">
+      <ion-icon slot="start" name="pencil-outline"></ion-icon> Edit Cart
+    </ion-button>
     <ion-button fill="clear" size="small">
       <ion-icon slot="start" name="trash-outline"></ion-icon> Delete Cart
     </ion-button>

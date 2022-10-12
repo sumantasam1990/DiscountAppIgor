@@ -15,9 +15,11 @@ export class ProductTypePage implements OnInit {
   id: string;
   name: string;
   usersURL: string = environment.serverAPI + 'product/type/';
+  urlCartSave: string = environment.serverAPI + 'save/cart/store';
   loading: boolean;
   data: any = [];
   following = false;
+  savedCart = false;
 
   constructor(
     private http: HttpClient,
@@ -49,11 +51,27 @@ export class ProductTypePage implements OnInit {
 
   // eslint-disable-next-line @typescript-eslint/naming-convention
   save_cart() {
-    Swal.fire({
-      title: 'Success!',
-      text: 'Your cart saved successfully.',
-      icon: 'success',
-      heightAuto: false,
+    const params = new URLSearchParams();
+    params.set('cart', this.id);
+
+    this.http.post<any>(this.urlCartSave, params).subscribe(response => {
+      // this.loadingctrl.dismiss();
+      if(response.id) {
+        this.savedCart = true;
+        Swal.fire({
+          title: 'Success!',
+          text: 'Cart saved into your account.',
+          icon: 'success',
+          heightAuto: false
+        });
+      } else {
+        Swal.fire({
+          title: 'Error!',
+          text: response.error,
+          icon: 'error',
+          heightAuto: false,
+        });
+      }
     });
   }
 

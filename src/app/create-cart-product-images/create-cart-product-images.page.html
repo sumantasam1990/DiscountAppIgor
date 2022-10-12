@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-back-button slot="start" color="dark"></ion-back-button>
+    <ion-title>Product Images - Cart</ion-title>
+
+    <ion-button (click)="finish()" slot="end" fill="clear" color="dark">
+      Finish
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-button (click)="takePhoto()" fill="outline" expand="block" color="dark">
+    <ion-icon name="camera-outline" slot="start"></ion-icon>
+    Choose Photo
+  </ion-button>
+
+  <ion-button (click)="upload()" fill="solid" expand="block" color="success">
+    <ion-icon name="cloud-upload-outline" slot="start"></ion-icon>
+    Upload
+  </ion-button>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let item of photos">
+        <ion-img [src]="item.img_url"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

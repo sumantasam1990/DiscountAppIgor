@@ -38,4 +38,8 @@ export class UnpublishedCartComponent implements OnInit {
     this.router.navigate(['product-type', id, name]);
   }
 
+  go(id) {
+    this.router.navigate(['create-cart-product-type', id]);
+  }
+
 }
