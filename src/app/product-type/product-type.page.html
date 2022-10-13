@@ -24,7 +24,7 @@
   </ion-label>
   <ion-img [src]="data.cart_photo"></ion-img>
 
-  <ion-text color="primary">
+  <ion-text color="primary" (click)="gotoProfile(data.user?.id)">
     <h4>{{ data.user?.name }}</h4>
   </ion-text>
 
@@ -32,9 +32,9 @@
 
     <ion-button fill="solid" size="small" color="light">{{ data.opens }} Opens</ion-button>
 
-    <ion-button *ngIf="following" fill="solid" size="small" color="dark" (click)="follow()">Following</ion-button>
+    <ion-button *ngIf="following" fill="solid" size="small" color="dark" >Following</ion-button>
 
-    <ion-button *ngIf="!following" fill="outline" size="small" color="dark" (click)="follow()">Follow</ion-button>
+    <ion-button *ngIf="!following" fill="outline" size="small" color="dark" (click)="follow(data.user?.id)">Follow</ion-button>
 
   </div>
 

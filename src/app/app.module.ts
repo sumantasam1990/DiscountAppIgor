@@ -19,7 +19,6 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     {
       rippleEffect: true,
        // mode: 'md',
-      backButtonText: 'Back',
     }
   ), AppRoutingModule, HttpClientModule, ScrollingModule, SweetAlert2Module.forRoot(),  ],
   providers: [

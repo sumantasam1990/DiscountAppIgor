@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
-  authURL: string = environment.serverAPI + 'sanctum/token'
+  authURL: string = environment.serverAPI + 'sanctum/token';
 
   constructor(
     private http: HttpClient,
@@ -34,10 +34,10 @@ export class AuthService {
       this.loadingctrl.dismiss();
 
       if(response.token) {
-        localStorage.setItem("token", response.token)
-        this.nav.navigateRoot('')
+        localStorage.setItem('token', response.token);
+        this.nav.navigateRoot('');
       } else {
-        alert(response.err)
+        alert(response.err);
       }
 
 

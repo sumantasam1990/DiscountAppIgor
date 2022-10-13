@@ -3,6 +3,7 @@ import {delay, retry} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {Router} from '@angular/router';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-unpublished-cart',
@@ -12,6 +13,9 @@ import {Router} from '@angular/router';
 export class UnpublishedCartComponent implements OnInit {
 
   unpublishedURL: string = environment.serverAPI + 'profile/unpublished/carts';
+  urlDeleteCart: string = environment.serverAPI + 'cart/delete/';
+  urlPublishCart: string = environment.serverAPI + 'cart/publish/';
+
   loading = false;
   data: any = [];
 
@@ -40,6 +44,31 @@ export class UnpublishedCartComponent implements OnInit {
 
   go(id) {
     this.router.navigate(['create-cart-product-type', id]);
+  }
+
+  delete(id) {
+    this.http.get(this.urlDeleteCart + id).subscribe((res: any) => {
+      Swal.fire({
+        title: 'Deleted',
+        icon: 'success',
+        heightAuto: false
+      }).then(() => {
+        this.getData();
+      });
+    });
+  }
+
+  publish(id) {
+    this.http.get(this.urlPublishCart + id).subscribe((res: any) => {
+      Swal.fire({
+        title: 'Published',
+        text: 'Cart has been successfully published.',
+        icon: 'success',
+        heightAuto: false,
+      }).then(() => {
+        this.getData();
+      });
+    });
   }
 
 }

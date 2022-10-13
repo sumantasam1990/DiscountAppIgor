@@ -53,6 +53,10 @@ const routes: Routes = [
   {
     path: 'create-cart-product-images/:id',
     loadChildren: () => import('./create-cart-product-images/create-cart-product-images.module').then( m => m.CreateCartProductImagesPageModule)
+  },
+  {
+    path: 'publicprofile/:id',
+    loadChildren: () => import('./publicprofile/publicprofile.module').then( m => m.PublicprofilePageModule)
   }
 ];
 @NgModule({

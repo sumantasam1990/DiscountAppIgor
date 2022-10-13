@@ -20,10 +20,13 @@
         <p>{{cart.opens}} Opens</p>
       </ion-label>
     </div>
+    <ion-button (click)="publish(cart.id)" fill="clear" size="small">
+      <ion-icon slot="start" name="checkmark-done-outline"></ion-icon> Publish Cart
+    </ion-button>
     <ion-button (click)="go(cart.id)" fill="clear" size="small">
       <ion-icon slot="start" name="pencil-outline"></ion-icon> Edit Cart
     </ion-button>
-    <ion-button fill="clear" size="small">
+    <ion-button (click)="delete(cart.id)" fill="clear" size="small">
       <ion-icon slot="start" name="trash-outline"></ion-icon> Delete Cart
     </ion-button>
   </ion-col>

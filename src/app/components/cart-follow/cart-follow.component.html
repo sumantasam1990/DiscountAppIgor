@@ -12,17 +12,17 @@
 
 <ion-row *ngIf="data.length > 0">
   <ion-col size="4" *ngFor="let cart of data">
-    <ion-img (click)="cartScreen(cart.followings[0].id, cart.followings[0].name);" src="https://cdn-icons-png.flaticon.com/128/149/149071.png"></ion-img>
+    <ion-img (click)="profileScreen(cart.followings[0]?.id);" src="https://cdn-icons-png.flaticon.com/128/149/149071.png"></ion-img>
 
     <div class="margin">
       <ion-label>
-        <h4>{{ cart.followings[0].name }}</h4>
+        <h4>{{ cart.followings[0]?.name }}</h4>
 <!--        <p>{{cart.opens}} Opens</p>-->
       </ion-label>
     </div>
-    <ion-button fill="clear" size="small">
-      <ion-icon slot="start" name="trash-outline"></ion-icon> Unfollow
-    </ion-button>
+<!--    <ion-button fill="clear" size="small">-->
+<!--      <ion-icon slot="start" name="trash-outline"></ion-icon> Unfollow-->
+<!--    </ion-button>-->
   </ion-col>
 </ion-row>
 

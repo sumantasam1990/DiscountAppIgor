@@ -7,9 +7,9 @@ import { Tab2Page } from './tab2.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { Tab2PageRoutingModule } from './tab2-routing.module';
-import {UnpublishedCartComponent} from "../components/unpublished-cart/unpublished-cart.component";
-import {SaveCartsComponent} from "../components/save-carts/save-carts.component";
-import {CartFollowComponent} from "../components/cart-follow/cart-follow.component";
+import {UnpublishedCartComponent} from '../components/unpublished-cart/unpublished-cart.component';
+import {SaveCartsComponent} from '../components/save-carts/save-carts.component';
+import {CartFollowComponent} from '../components/cart-follow/cart-follow.component';
 
 @NgModule({
   imports: [

@@ -16,6 +16,7 @@ export class ProductTypePage implements OnInit {
   name: string;
   usersURL: string = environment.serverAPI + 'product/type/';
   urlCartSave: string = environment.serverAPI + 'save/cart/store';
+  urlFollowUser: string = environment.serverAPI + 'follow/user/store';
   loading: boolean;
   data: any = [];
   following = false;
@@ -75,13 +76,33 @@ export class ProductTypePage implements OnInit {
     });
   }
 
-  follow() {
-    this.following = true;
-    Swal.fire({
-      title: 'Following',
-      icon: 'success',
-      heightAuto: false,
+  follow(id) {
+    const params = new URLSearchParams();
+    params.set('userId', id);
+
+    this.http.post<any>(this.urlFollowUser, params).subscribe(response => {
+      // this.loadingctrl.dismiss();
+      if(response.id) {
+        this.following = true;
+        Swal.fire({
+          title: 'Success!',
+          text: 'Following',
+          icon: 'success',
+          heightAuto: false
+        });
+      } else {
+        Swal.fire({
+          title: 'Error!',
+          text: response.error,
+          icon: 'error',
+          heightAuto: false,
+        });
+      }
     });
+  }
+
+  gotoProfile(id) {
+    this.router.navigate(['publicprofile', id]);
   }
 
 }

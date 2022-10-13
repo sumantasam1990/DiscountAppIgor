@@ -3,8 +3,8 @@
     <!-- <ion-img src="https://thedailyplanet.app/images/bescrow.png"></ion-img> -->
     <ion-label>
       <h1>Create Your Account</h1>
-      <p>Already have an account? <ion-text (click)="login()" color="dark">Login</ion-text>
-      </p>
+      <h2>Already have an account? <ion-text (click)="login()" color="primary">Login</ion-text>
+      </h2>
     </ion-label>
 
     <ion-item style="margin-top: 20pt;">
@@ -28,16 +28,21 @@
 
 
     <ion-item style="margin-top: 20pt;">
-      <ion-input type="url" inputmode="url" placeholder="Twitter" [(ngModel)]="log.tw" name="tw"></ion-input>
+      <ion-input type="url" inputmode="url" placeholder="Twitter Profile Url" [(ngModel)]="log.tw" name="tw"></ion-input>
     </ion-item>
 
     <ion-item style="margin-top: 20pt;">
-      <ion-input type="url" inputmode="url" placeholder="Facebook" [(ngModel)]="log.fb" name="fb"></ion-input>
+      <ion-input type="url" inputmode="url" placeholder="Facebook Profile Url" [(ngModel)]="log.fb" name="fb"></ion-input>
     </ion-item>
 
     <ion-item style="margin-top: 20pt;">
-      <ion-input type="url" inputmode="url" placeholder="Pinterest" [(ngModel)]="log.pin" name="pin"></ion-input>
+      <ion-input type="url" inputmode="url" placeholder="Pinterest Profile Url" [(ngModel)]="log.pin" name="pin"></ion-input>
     </ion-item>
+
+    <ion-button (click)="takePhoto()" expand="block" color="dark">
+      <ion-icon slot="start" name="camera-outline"></ion-icon>
+      Profile Photo
+    </ion-button>
 
     <ion-button (click)="signup()" color="primary" expand="block">Sign Up</ion-button>
 

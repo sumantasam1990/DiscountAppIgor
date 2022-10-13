@@ -1,20 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { environment } from 'src/environments/environment';
 import {delay, retry} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
-import Swal from "sweetalert2";
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+  selector: 'app-publicprofile',
+  templateUrl: './publicprofile.page.html',
+  styleUrls: ['./publicprofile.page.scss'],
 })
-export class Tab2Page implements OnInit {
+export class PublicprofilePage implements OnInit {
 
-  publishedURL: string = environment.serverAPI + 'profile/published/carts';
-  urlProfile: string = environment.serverAPI + 'profile';
-  urlDeleteCart: string = environment.serverAPI + 'cart/delete/';
+  urlProfile: string = environment.serverAPI + 'profile/';
+  publishedURL: string = environment.serverAPI + 'profile/published/carts/';
   unpublished = false;
   published = true;
   saved = false;
@@ -23,27 +21,26 @@ export class Tab2Page implements OnInit {
 
   loading = false;
   data: any = [];
+  userIdd = '';
   profileData: any = [];
 
   constructor(
     private http: HttpClient,
     private router: Router,
+    private route: ActivatedRoute,
   ) {}
 
   async ngOnInit() {
-        await this.getData();
-        this.http.get(this.urlProfile).subscribe((res: any) => {
-          this.profileData = res.profile[0];
-        });
-    }
-
-    async ionViewWillEnter() {
-      await this.getData();
-    }
+    this.userIdd = this.route.snapshot.paramMap.get('id');
+    await this.getData();
+    this.http.get(this.urlProfile +this.userIdd).subscribe((res: any) => {
+      this.profileData = res.profile[0];
+    });
+  }
 
   async getData() {
     this.loading = true;
-    await this.http.get(this.publishedURL).pipe(delay(250), retry(3)).toPromise().then((res: any) => {
+    await this.http.get(this.publishedURL + this.userIdd).pipe(delay(250), retry(3)).toPromise().then((res: any) => {
       this.loading = false;
       this.data = res.carts;
     }, error => {
@@ -100,22 +97,6 @@ export class Tab2Page implements OnInit {
   logout() {
     localStorage.clear();
     this.router.navigate(['login']);
-  }
-
-    delete(id) {
-    this.http.get(this.urlDeleteCart + id).subscribe((res: any) => {
-      Swal.fire({
-        title: 'Deleted',
-        icon: 'success',
-        heightAuto: false
-      }).then(() => {
-        this.getData();
-      });
-    });
-  }
-
-  go(id) {
-    this.router.navigate(['create-cart-product-type', id]);
   }
 
 }
