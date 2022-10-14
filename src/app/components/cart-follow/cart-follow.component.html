@@ -12,7 +12,10 @@
 
 <ion-row *ngIf="data.length > 0">
   <ion-col size="4" *ngFor="let cart of data">
-    <ion-img (click)="profileScreen(cart.followings[0]?.id);" src="https://cdn-icons-png.flaticon.com/128/149/149071.png"></ion-img>
+
+    <ion-img (click)="profileScreen(cart.followings[0]?.id);" *ngIf="cart.followings[0].photo === '' || cart.followings[0].photo === 'https://cartingly.com//' || cart.followings[0].photo === 'https://cartingly.com'" class="pro-pic" src="https://cdn-icons-png.flaticon.com/128/149/149071.png"></ion-img>
+
+    <ion-img (click)="profileScreen(cart.followings[0]?.id);" *ngIf="cart.followings[0].photo !== '' && cart.followings[0].photo !== 'https://cartingly.com//' && cart.followings[0].photo !== 'https://cartingly.com'" class="pro-pic" [src]="cart.followings[0].photo"></ion-img>
 
     <div class="margin">
       <ion-label>

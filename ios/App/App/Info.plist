@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>DiscountApp</string>
+	<string>Cartingly</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -22,19 +22,16 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>We need camera access to create a cart.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>We need camera access to create a cart.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need camera access to create a cart.</string>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>LaunchScreen.storyboard</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
-
-	<key>NSCameraUsageDescription</key>
-	<string>Camera Usage Description</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-  <string>Camera Usage Description</string>
-  <key>NSPhotoLibraryUsageDescription</key>
-  <string>Camera Usage Description</string>
-
-
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

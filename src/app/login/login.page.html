@@ -1,18 +1,18 @@
 <ion-content class="ion-padding">
   <div class="flex">
-    <!-- <ion-img src="https://thedailyplanet.app/images/bescrow.png"></ion-img> -->
+     <ion-img src="https://cartingly.com/logo.webp"></ion-img>
     <ion-label>
-      <h1>Login in to Cartingly</h1>
-      <h2>Don't have an account? <ion-text (click)="signup()" color="primary">Sign Up</ion-text>
-      </h2>
+      <h1><ion-text style="font-size: 34px;">
+        Login
+      </ion-text></h1>
     </ion-label>
 
-    <ion-item style="margin-top: 20pt;">
+    <ion-item style="margin-top: 20pt;" lines="none">
 
       <ion-input type="email" inputmode="email" placeholder="Email" [(ngModel)]="log.email" name="email"></ion-input>
     </ion-item>
 
-    <ion-item style="margin-top: 20px;">
+    <ion-item style="margin-top: 20px;" lines="none">
 
       <ion-input type="password" inputmode="password" placeholder="Password" [(ngModel)]="log.pass" name="pass">
       </ion-input>
@@ -20,9 +20,16 @@
 
     <ion-button (click)="login()" color="primary" expand="block">Login</ion-button>
 
-    <!-- <ion-label>
-      <ion-button fill="clear" color="dark">Forgot password?</ion-button>
-    </ion-label> -->
+    <ion-label>
+      <ion-button fill="clear" color="medium">Forgot password?</ion-button>
+    </ion-label>
+
+    <ion-label>
+      <h2><ion-text color="dark">Don't have an account? </ion-text> <ion-text (click)="signup()" color="primary">Sign Up</ion-text>
+      </h2>
+    </ion-label>
+
+
   </div>
 
 

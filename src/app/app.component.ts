@@ -7,7 +7,7 @@ import { StatusBar, Style } from '@capacitor/status-bar';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent{
   constructor(
     private router: Router,
   ) {
@@ -19,6 +19,8 @@ export class AppComponent {
       router.navigate(['login']);
     }
   }
+
+
 }
 
 // the end end.......

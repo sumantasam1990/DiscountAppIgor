@@ -21,6 +21,12 @@ ion-content {
     ion-button {
       margin-top: 20px;
     }
+
+    ion-input {
+      --background: #f4f4f4;
+      --padding-start: 12px;
+      border-radius: 14px;
+    }
   }
 
 }

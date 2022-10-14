@@ -41,6 +41,29 @@
       <ion-item-divider></ion-item-divider>
 
       <ion-item-group>
+        <ion-radio-group (ionChange)="getSingleMulti($event)">
+          <ion-list-header>
+            Choose Single Or Multiple Cart
+          </ion-list-header>
+
+          <ion-item>
+            <ion-label>Single</ion-label>
+            <ion-radio mode="md" slot="start" value="single"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Multiple</ion-label>
+            <ion-radio mode="md" slot="start" value="multi"></ion-radio>
+          </ion-item>
+
+
+
+
+        </ion-radio-group>
+      </ion-item-group>
+      <ion-item-divider></ion-item-divider>
+
+      <ion-item-group>
         <ion-list-header>Levels</ion-list-header>
         <ion-item>
           <ion-select interface="popover" placeholder="Level One" (ionChange)="selectLevelOne($event)">
@@ -80,7 +103,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-img *ngIf="mainPhoto !== ''" [src]="mainPhoto"></ion-img>
+        <ion-img [src]="mainPhoto"></ion-img>
       </ion-item>
 
       <ion-item-divider></ion-item-divider>

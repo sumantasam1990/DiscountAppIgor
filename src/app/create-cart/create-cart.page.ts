@@ -20,6 +20,7 @@ export class CreateCartPage implements OnInit {
   loading = false;
   maincategory = '';
   levelOneData = '';
+  singleMulti = '';
   levelOne = [];
   levelTwo = [];
   levelTwoData = '';
@@ -38,9 +39,22 @@ export class CreateCartPage implements OnInit {
   ngOnInit() {
   }
 
+  async presentLoading() {
+    const loading = await this.loadingctrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait... Do not close or minimize or back the app',
+      duration: 15000
+    });
+    await loading.present();
+  }
+
   async getMainCate(e) {
     this.maincategory = e.detail.value;
     await this.getLevelOne();
+  }
+
+  async getSingleMulti(e) {
+    this.singleMulti = e.detail.value;
   }
 
   async selectLevelOne(e) {
@@ -140,16 +154,18 @@ export class CreateCartPage implements OnInit {
   }
 
 
-  processData() {
+  async processData() {
+    await this.presentLoading();
     const params = new URLSearchParams();
     params.set('cart', this.cart.cartName);
     params.set('desc', this.cart.cartDesc);
     params.set('two', this.levelTwoData);
     params.set('main_cate', this.maincategory);
     params.set('photo', this.imageData);
+    params.set('single_multi', this.singleMulti);
 
     this.http.post<any>(this.urlCartSave, params).subscribe(response => {
-      // this.loadingctrl.dismiss();
+      this.loadingctrl.dismiss();
       if(response.id) {
         Swal.fire({
           title: 'Success!',

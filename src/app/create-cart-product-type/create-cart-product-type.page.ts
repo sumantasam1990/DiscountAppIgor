@@ -34,13 +34,23 @@ export class CreateCartProductTypePage implements OnInit {
     });
   }
 
-  addType() {
+  async presentLoading() {
+    const loading = await this.loadingctrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait... Do not close or minimize or back the app',
+      duration: 15000
+    });
+    await loading.present();
+  }
+
+  async addType() {
+    await this.presentLoading();
     const params = new URLSearchParams();
     params.set('cartId', this.cartId);
     params.set('cate', this.prodType);
 
     this.http.post<any>(this.urlCartSave, params).subscribe(response => {
-      // this.loadingctrl.dismiss();
+      this.loadingctrl.dismiss();
       if(response.id) {
         this.prodType = '';
         //get data

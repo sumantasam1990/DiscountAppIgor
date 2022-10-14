@@ -11,7 +11,9 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-img class="pro-pic" src="https://cdn-icons-png.flaticon.com/128/149/149071.png"></ion-img>
+        <ion-img *ngIf="profileData.photo === '' || profileData.photo === 'https://cartingly.com//' || profileData.photo === 'https://cartingly.com'" class="pro-pic" src="https://cdn-icons-png.flaticon.com/128/149/149071.png"></ion-img>
+
+        <ion-img *ngIf="profileData.photo !== '' && profileData.photo !== 'https://cartingly.com//' && profileData.photo !== 'https://cartingly.com'" class="pro-pic" [src]="profileData.photo"></ion-img>
 
         <div class="margin">
           <ion-label>
@@ -84,9 +86,7 @@
               <p>{{cart.opens}} Opens</p>
             </ion-label>
           </div>
-          <ion-button fill="clear" size="small">
-            <ion-icon slot="start" name="trash-outline"></ion-icon> Delete Cart
-          </ion-button>
+
         </ion-col>
       </ion-row>
 

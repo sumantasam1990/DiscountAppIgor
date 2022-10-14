@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import {delay, retry} from 'rxjs/operators';
 import Swal from 'sweetalert2';
+import {LoadingController} from "@ionic/angular";
 
 @Component({
   selector: 'app-product-type',
@@ -26,6 +27,7 @@ export class ProductTypePage implements OnInit {
     private http: HttpClient,
     private route: ActivatedRoute,
     private router: Router,
+    private loadingctrl: LoadingController,
   ) { }
 
   async ngOnInit() {
@@ -35,11 +37,27 @@ export class ProductTypePage implements OnInit {
 
   }
 
+  async presentLoading() {
+    const loading = await this.loadingctrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait... Do not close or minimize or back the app',
+      duration: 15000
+    });
+    await loading.present();
+  }
+
   async getData() {
      this.loading = true;
       await this.http.get(this.usersURL + this.id).pipe(delay(250), retry(3)).toPromise().then((res: any) => {
+        console.log(res);
         this.loading = false;
         this.data = res.cart[0];
+        if(res.save_cart > 0) {
+          this.savedCart = true;
+        }
+        if(res.followed > 0) {
+          this.following = true;
+        }
       }, error => {
         alert('Error! ' + error);
       });

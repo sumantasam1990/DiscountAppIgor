@@ -25,13 +25,24 @@ export class CreateCartProductPage implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private http: HttpClient,
+    private loadingctrl: LoadingController,
   ) { }
 
   ngOnInit() {
     this.typeId = this.route.snapshot.paramMap.get('id');
   }
 
-  next() {
+  async presentLoading() {
+    const loading = await this.loadingctrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait... Do not close or minimize or back the app',
+      duration: 15000
+    });
+    await loading.present();
+  }
+
+  async next() {
+    await this.presentLoading();
     const params = new URLSearchParams();
     params.set('title', this.title);
     params.set('imp', this.imp);
@@ -41,7 +52,7 @@ export class CreateCartProductPage implements OnInit {
     params.set('cate', this.typeId);
 
     this.http.post<any>(this.urlSaveCart, params).subscribe(response => {
-      // this.loadingctrl.dismiss();
+      this.loadingctrl.dismiss();
       if(response.id) {
         Swal.fire({
           title: 'Success!',

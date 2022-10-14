@@ -45,16 +45,26 @@ export class CreateCartProductImagesPage implements OnInit {
       presentationStyle: 'popover',
     });
     this.imageData = image.base64String;
-    this.mainPhoto = image.dataUrl;
+    this.mainPhoto = image.webPath;
   }
 
-  upload() {
+  async presentLoading() {
+    const loading = await this.loadingctrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait... Do not close or minimize or back the app',
+      duration: 15000
+    });
+    await loading.present();
+  }
+
+  async upload() {
+    await this.presentLoading();
     const params = new URLSearchParams();
     params.set('prod', this.prodId);
     params.set('photo', this.imageData);
 
     this.http.post<any>(this.urlCartSave, params).subscribe(response => {
-      // this.loadingctrl.dismiss();
+      this.loadingctrl.dismiss();
       this.imageData = '';
       if(response.upload) {
         Swal.fire({

@@ -1,0 +1,6 @@
+{
+	"appId": "com.goodyellow.discountapp",
+	"appName": "Cartingly",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
